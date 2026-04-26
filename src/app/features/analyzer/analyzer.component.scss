@@ -1,0 +1,109 @@
+.analyzer-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f7fa;
+    padding: 2rem;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 680px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+
+    h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #1a1a2e;
+        margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+        color: #6b7280;
+        margin-bottom: 2rem;
+        font-size: 0.95rem;
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+
+    label {
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: #374151;
+        margin-bottom: 0.5rem;
+    }
+
+    input[type='file'] {
+        border: 2px dashed #d1d5db;
+        border-radius: 8px;
+        padding: 1rem;
+        cursor: pointer;
+        font-size: 0.9rem;
+        color: #6b7280;
+
+        &:hover {
+            border-color: #6366f1;
+        }
+    }
+
+    .file-hint {
+        margin-top: 0.4rem;
+        font-size: 0.85rem;
+        color: #6366f1;
+    }
+
+    textarea {
+        border: 1.5px solid #d1d5db;
+        border-radius: 8px;
+        padding: 0.75rem;
+        font-size: 0.95rem;
+        font-family: inherit;
+        resize: vertical;
+        transition: border-color 0.2s;
+
+        &:focus {
+            outline: none;
+            border-color: #6366f1;
+        }
+    }
+}
+
+.error-banner {
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 0.85rem;
+    background: #6366f1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover:not(:disabled) {
+        background: #4f46e5;
+    }
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+}

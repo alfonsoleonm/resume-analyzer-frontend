@@ -1,0 +1,26 @@
+<div class="analyzer-container">
+    <div class="card">
+        <h1>Resume Analyzer</h1>
+        <p class="subtitle">Upload your resume and paste a job description to get an AI-powered fit analysis.</p>
+
+        <div class="form-group">
+            <label for="resume">Resume (PDF)</label>
+            <input type="file" id="resume" accept=".pdf" (change)="onFileSelected($event)" />
+            <span class="file-hint" *ngIf="selectedFile">{{ selectedFile.name }}</span>
+        </div>
+
+        <div class="form-group">
+            <label for="jobDescription">Job Description</label>
+            <textarea id="jobDescription" [(ngModel)]="jobDescription"
+                placeholder="Paste the full job description here..." rows="8"></textarea>
+        </div>
+
+        <div class="error-banner" *ngIf="errorMessage">
+            {{ errorMessage }}
+        </div>
+
+        <button class="btn-primary" (click)="onSubmit()" [disabled]="isLoading">
+            {{ isLoading ? 'Analyzing...' : 'Analyze Resume' }}
+        </button>
+    </div>
+</div>
