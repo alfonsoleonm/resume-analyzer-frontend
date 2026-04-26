@@ -7,6 +7,20 @@
     padding: 2rem;
 }
 
+.gemini-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #eef2ff;
+    border: 1.5px solid #e0e7ff;
+    border-radius: 20px;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #4f46e5;
+    margin-bottom: 1rem;
+}
+
 .card {
     background: white;
     border-radius: 12px;

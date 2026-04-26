@@ -1,12 +1,20 @@
 <div class="analyzer-container">
     <div class="card">
+        <div class="gemini-badge">
+            <img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg" alt="Gemini"
+                width="18" height="18" />
+            AI powered by Gemini
+        </div>
+
         <h1>Resume Analyzer</h1>
         <p class="subtitle">Upload your resume and paste a job description to get an AI-powered fit analysis.</p>
 
         <div class="form-group">
             <label for="resume">Resume (PDF)</label>
             <input type="file" id="resume" accept=".pdf" (change)="onFileSelected($event)" />
-            <span class="file-hint" *ngIf="selectedFile">{{ selectedFile.name }}</span>
+            @if (selectedFile) {
+            <span class="file-hint">{{ selectedFile.name }}</span>
+            }
         </div>
 
         <div class="form-group">
@@ -15,9 +23,9 @@
                 placeholder="Paste the full job description here..." rows="8"></textarea>
         </div>
 
-        <div class="error-banner" *ngIf="errorMessage">
-            {{ errorMessage }}
-        </div>
+        @if (errorMessage) {
+        <div class="error-banner">{{ errorMessage }}</div>
+        }
 
         <button class="btn-primary" (click)="onSubmit()" [disabled]="isLoading">
             {{ isLoading ? 'Analyzing...' : 'Analyze Resume' }}
