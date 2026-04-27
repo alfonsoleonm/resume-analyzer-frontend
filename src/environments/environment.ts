@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://localhost:3000/api',
+  apiUrl: 'https://resume-analyzer-backend-ji6h.onrender.com/api',
 };
