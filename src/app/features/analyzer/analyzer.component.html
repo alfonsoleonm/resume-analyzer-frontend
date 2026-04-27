@@ -1,4 +1,13 @@
 <div class="analyzer-container">
+
+    @if (isLoading) {
+    <div class="loading-overlay">
+        <div class="spinner"></div>
+        <p>Analyzing your resume with AI...</p>
+        <span class="loading-sub">This may take a few seconds</span>
+    </div>
+    }
+
     <div class="card">
         <div class="gemini-badge">
             <img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg" alt="Gemini"
@@ -28,7 +37,7 @@
         }
 
         <button class="btn-primary" (click)="onSubmit()" [disabled]="isLoading">
-            {{ isLoading ? 'Analyzing...' : 'Analyze Resume' }}
+            Analyze Resume
         </button>
     </div>
 </div>
