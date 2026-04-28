@@ -1,59 +1,85 @@
-# ResumeAnalyzerFrontend
+# Resume Analyzer — Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.5.
+Angular frontend for the Resume Analyzer application. Allows users to upload a resume PDF and paste a job description to receive an AI-powered fit analysis.
 
-## Development server
+## Live Demo
 
-To start a local development server, run:
+[https://resume-analyzer-frontend.netlify.app](https://resume-analyzer-frontend.netlify.app)
+
+## Tech Stack
+
+- **Framework:** Angular 17 (standalone components)
+- **Language:** TypeScript
+- **Styling:** SCSS
+- **Deployment:** Netlify
+
+## Features
+
+- PDF resume upload with client-side validation
+- Job description text input
+- Loading overlay with spinner during AI processing
+- Results dashboard with:
+  - Fit score gauge (color-coded: green/amber/red)
+  - Matched skills chips
+  - Missing skills chips
+  - Per-section feedback (Experience, Education, Skills)
+  - AI summary
+- "AI powered by Gemini" badge for transparency
+- Retrieval of past analyses by ID from DynamoDB
+
+## Project Structure
+src/app/
+core/
+models/         # TypeScript interfaces (AnalysisResult)
+services/       # HTTP service (AnalysisService)
+features/
+analyzer/       # Upload form component
+results/        # Results dashboard component
+shared/
+components/     # Reusable UI components
+environments/     # API URL configuration per environment
+
+## Local Setup
+
+### Prerequisites
+
+- Node.js 18+
+- Angular CLI 17+
+- Backend running locally on port 3000
+
+### Steps
 
 ```bash
+git clone https://github.com/alfonsoleonm/resume-analyzer-frontend.git
+cd resume-analyzer-frontend
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+App runs at `http://localhost:4200`.
 
-## Code scaffolding
+### Environment Configuration
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+The API URL is configured in `src/environments/`:
 
-```bash
-ng generate component component-name
-```
+- `environment.ts` — production (points to Render backend)
+- `environment.development.ts` — local development (points to localhost:3000)
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Deployment
 
-```bash
-ng generate --help
-```
+Deployed on [Netlify](https://netlify.com) free tier with automatic deploys on every push to `main`.
 
-## Building
+Build command: `ng build`
+Publish directory: `dist/resume-analyzer-frontend/browser`
 
-To build the project run:
+## Related Repositories
 
-```bash
-ng build
-```
+- Backend: [resume-analyzer-backend](https://github.com/alfonsoleonm/resume-analyzer-backend)
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Planned Enhancements
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **Async polling** — Poll for results while Lambda processes the AI analysis in the background.
+- **Analysis history** — Display a list of past analyses per user session.
+- **Authentication** — Login with AWS Cognito for persistent user history.
+- **PDF drag and drop** — Improved file upload UX.
+- **Export results** — Download analysis as PDF report.
